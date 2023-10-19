@@ -1,6 +1,6 @@
 import os, sys 
 from pathlib import Path 
-import logging 
+from src.logger import logging
 
 while True:
     project_name = input("Enter your Project Name: ")
@@ -31,9 +31,10 @@ resources = [
 
 ]
 
-for resource in resources:
-    file_path = Path(resource)
-    filedir, filename = os.path.split(resource)
+
+for component in resources:
+    file_path = Path(component)
+    filedir, filename = os.path.split(component)
 
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
@@ -44,6 +45,6 @@ for resource in resources:
             pass 
 
     else: 
-        logging.info(f"File Already exists at: {filepath}")
+        logging.info(f"File Already exists at: {file_path}")
 
 
